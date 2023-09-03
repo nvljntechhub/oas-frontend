@@ -118,16 +118,18 @@ const LayoutComponent = (props: Props) => {
 
   useEffect(() => {
     const currentPath = window.location.pathname;
-    const adminManagementIndex = currentPath.indexOf('/admin-management');
-    if (adminManagementIndex !== -1) {
-      const subPathAfterAdminManagement = currentPath.substring(
-        adminManagementIndex + '/admin-management'.length
+    const consultantManagementIndex = currentPath.indexOf(
+      routesURLs.CONSULTANT_MANAGEMENT
+    );
+    if (consultantManagementIndex !== -1) {
+      const subPathAfterConsultantManagement = currentPath.substring(
+        consultantManagementIndex + routesURLs.CONSULTANT_MANAGEMENT.length
       );
-      if (subPathAfterAdminManagement === routesURLs.CONSULTANT) {
+      if (subPathAfterConsultantManagement === routesURLs.DASHBOARD) {
         setmodule(1);
-      } else if (subPathAfterAdminManagement === routesURLs.JOB_SEEKER) {
+      } else if (subPathAfterConsultantManagement === routesURLs.JOB_SEEKER) {
         setmodule(2);
-      } else if (subPathAfterAdminManagement === routesURLs.APPOINTMENTS) {
+      } else if (subPathAfterConsultantManagement === routesURLs.APPOINTMENTS) {
         setmodule(3);
       }
     }
@@ -179,7 +181,7 @@ const LayoutComponent = (props: Props) => {
                   <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                  The JOBS
+                  The JOBS - Consultant
                 </Typography>
               </Toolbar>
             </Grid>
@@ -211,7 +213,7 @@ const LayoutComponent = (props: Props) => {
                   background: module === 1 ? '#5F5F5F84' : ''
                 }}
                 component={RouterLink}
-                to="/admin-management/consultant"
+                to={routesURLs.CONSULTANT_MANAGEMENT + routesURLs.CONSULTANT}
               >
                 <ListItemIcon
                   sx={{
@@ -223,12 +225,12 @@ const LayoutComponent = (props: Props) => {
                   <BadgeTwoTone />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Consultant"
+                  primary="Dashboard"
                   sx={{ opacity: open ? 1 : 0 }}
                 />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            {/* <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -253,7 +255,7 @@ const LayoutComponent = (props: Props) => {
                   sx={{ opacity: open ? 1 : 0 }}
                 />
               </ListItemButton>
-            </ListItem>
+            </ListItem> */}
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -263,7 +265,7 @@ const LayoutComponent = (props: Props) => {
                   background: module === 3 ? '#5F5F5F84' : ''
                 }}
                 component={RouterLink}
-                to="/admin-management/appointment"
+                to={routesURLs.CONSULTANT_MANAGEMENT + routesURLs.APPOINTMENTS}
               >
                 <ListItemIcon
                   sx={{

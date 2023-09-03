@@ -20,10 +20,12 @@ import {
   colorCodes,
   help,
   regularExpressions,
+  routesURLs,
   userRoles
 } from 'src/utils/properties';
 import FormikControl from 'src/components/InputControls/FormikControl';
 import { SignIn } from 'src/services/auth.service';
+import Cookies from 'universal-cookie';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -43,6 +45,7 @@ const AdminSignIn = (props: Props) => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState('');
+  const cookies = new Cookies();
   const [initialValues] = useState({
     email: '',
     password: ''
@@ -65,20 +68,22 @@ const AdminSignIn = (props: Props) => {
     };
     SignIn(input).then(
       (response: any) => {
-        console.log('response', response);
-
-        // localStorage.setItem(
-        //   'loggedInAdmin',
-        //   JSON.stringify({
-        //     id: response.id,
-        //     firstName: response.firstName,
-        //     lastName: response.lastName,
-        //     email: values.email,
-        //     phoneNumber: response.phoneNumber
-        //   })
-        // );
+        cookies.set('token', response.data.token, { path: '/' });
+        localStorage.setItem(
+          'loggedInAdmin',
+          JSON.stringify({
+            id: response.data.id,
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+            email: response.data.email
+          })
+        );
+        navigate(routesURLs.ADMIN_MANAGEMENT + routesURLs.CONSULTANT);
       },
-      (error: any) => {}
+      (error: any) => {
+        setErrorMsg(error.response.data.Error);
+        console.log('error', error.response.data.Error);
+      }
     );
   };
 
@@ -111,7 +116,7 @@ const AdminSignIn = (props: Props) => {
                     columnSpacing={1}
                     justifyContent="center"
                   >
-                    <Grid item xs={12} sx={{ mb: 1 }}>
+                    <Grid item xs={12} sx={{ mb: 1, mt: 1 }}>
                       <Stack sx={{ width: '100%' }}>
                         {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
                       </Stack>
