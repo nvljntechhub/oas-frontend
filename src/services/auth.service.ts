@@ -9,18 +9,6 @@ const SignIn = (credentials: Object) => {
   });
 };
 
-const consultantSignIn = (credentials: Object) => {
-  return axios.post(AUTH_API_URL + apiUrls.CONSULTANT_SIGN_IN, credentials, {
-    withCredentials: true
-  });
-};
-
-const consultantSignUp = (data: Object) => {
-  return axios.post(AUTH_API_URL + apiUrls.CONSULTANT_SIGN_UP, data, {
-    withCredentials: true
-  });
-};
-
 // const forgotPassword = (data) => {
 //   return axios.post(AUTH_API_URL + '/forgot-password', data);
 // };
@@ -53,4 +41,4 @@ const logout = () => {
   );
 };
 
-export { SignIn, consultantSignIn, consultantSignUp, logout };
+export { SignIn, logout };
