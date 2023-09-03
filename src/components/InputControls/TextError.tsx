@@ -1,11 +1,12 @@
-import { colorCodes } from 'src/utils/properties';
+import { colorCodes } from "src/utils/properties";
 
 function TextError(props: any) {
   return (
     <div
       style={{
-        color: colorCodes.ERROR,
-        fontSize: '12px'
+        color: colorCodes.CRIMSION,
+        textAlign: "left",
+        fontWeight: "bold",
       }}
     >
       {props.children}

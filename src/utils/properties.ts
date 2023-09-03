@@ -1,27 +1,11 @@
 export const apiUrls = {
-  BASEURL: 'http://localhost:8080/api/v2',
-  AUTH: '/auth',
+  BASEURL: 'http://localhost:8080',
+  AUTH: '/api/v1/auth',
   SIGN_IN: '/signin',
-  CONSULTANT_SIGN_UP: '/consultant_sign_up',
-  CONSULTANT_SIGN_IN: '/consultant_sign_in',
   LOG_OUT: '/logout',
   VERIFY_EMAIL: '/verify-email',
   FORGOT_PASSWORD: '/forgot-password',
-  RESET_PASSWORD: '/reset-password',
-  CONSULTANT: '/consultant',
-  JOB_SEEKER: '/job_seeker',
-  APPOINTMENT: '/appointment'
-};
-
-export const routesURLs = {
-  ADMIN_MANAGEMENT: '/admin-management',
-  CONSULTANT_MANAGEMENT: '/consultant-management',
-  CONSULTANT_SIGNIN: 'consultant-signin',
-  DASHBOARD: '/dashboard',
-  CONSULTANT: '/consultant',
-  JOB_SEEKER: '/job_seeker',
-  APPOINTMENTS: '/appointment',
-  LOGIN: '/login'
+  RESET_PASSWORD: '/reset-password'
 };
 
 export const regularExpressions = {
@@ -54,11 +38,6 @@ export const help = {
   EXAM_TYPE_SELECTION_REQUIRED: 'Exam type must be selected!'
 };
 
-export const actions = {
-  ADD: 'Add',
-  Edit: 'Edit'
-};
-
 export const colorCodes = {
   WHITE: '#FFFFFF',
   CRIMSION: '#ff3c60',
@@ -66,7 +45,7 @@ export const colorCodes = {
   GAINSBORO: '#dddddd',
   ORANGE: '#ff5b00',
   BLACK: '#000000',
-  ERROR: '#FF0000',
+  ERROR: '#9E0000',
   MIDNIGHT: '#2c3e50'
 };
 
@@ -74,16 +53,4 @@ export const userRoles = {
   ADMIN: 'ADMIN',
   CONSULTANT: 'CONSULTANT',
   JOB_SEEKER: 'JOB_SEEKER'
-};
-
-export const pagination = {
-  PAGE_LIMIT: 25,
-  SEARCH_LIMIT: 50,
-  OFFSET: 0,
-  COUNT: 0
-};
-
-export const status = {
-  ACTIVATE: 'Activate',
-  INACTIVATE: 'Inactivate'
 };
