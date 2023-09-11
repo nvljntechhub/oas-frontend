@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Navigate, RouteObject } from 'react-router';
-import LayoutComponent from 'src/components/Layout';
-import AppointmentManagement from 'src/pages/Admin/appointements';
+import LayoutComponent from 'src/components/SidebarLayout/Admin';
+import AppointmentManagement from 'src/pages/Admin/appointments';
 
 import ConsultantManagement from 'src/pages/Admin/consultant';
 import JobSeekerManagement from 'src/pages/Admin/jobSeeker';
@@ -24,7 +24,7 @@ const adminRoutes: RouteObject[] = [
         )
       },
       {
-        path: 'job_seeker',
+        path: 'job-seeker',
         element: (
           <Suspense fallback={<>...</>}>
             <JobSeekerManagement />

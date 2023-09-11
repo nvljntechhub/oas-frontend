@@ -6,6 +6,8 @@ export interface Appointment {
   appointmentTime: Date;
   consultantId: string;
   jobSeekerId: string;
+  isAccepted: boolean;
+  isDeclined: boolean;
 }
 
 export interface AppointmentDetails {

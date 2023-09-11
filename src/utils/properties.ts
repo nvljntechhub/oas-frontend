@@ -4,6 +4,8 @@ export const apiUrls = {
   SIGN_IN: '/signin',
   CONSULTANT_SIGN_UP: '/consultant_sign_up',
   CONSULTANT_SIGN_IN: '/consultant_sign_in',
+  JOB_SEEKER_SIGN_UP: '/job_seeker_sign_up',
+  JOB_SEEKER_SIGN_IN: '/job_seeker_sign_in',
   LOG_OUT: '/logout',
   VERIFY_EMAIL: '/verify-email',
   FORGOT_PASSWORD: '/forgot-password',
@@ -14,13 +16,18 @@ export const apiUrls = {
 };
 
 export const routesURLs = {
+  ADMIN_SIGN_IN: '/admin-signin',
+  CONSULTANT_SIGN_IN: '/consultant-signin',
+  CONSULTANT_SIGN_UP: '/consultant-signup',
+  JOB_SEEKER_SIGN_IN: '/job-seeker-signin',
+  JOB_SEEKER_SIGN_UP: '/job-seeker-signup',
   ADMIN_MANAGEMENT: '/admin-management',
   CONSULTANT_MANAGEMENT: '/consultant-management',
-  CONSULTANT_SIGNIN: 'consultant-signin',
+  JOB_SEEKER_MANAGEMENT: '/job-seeker-management',
   DASHBOARD: '/dashboard',
   CONSULTANT: '/consultant',
-  JOB_SEEKER: '/job_seeker',
-  APPOINTMENTS: '/appointment',
+  JOB_SEEKER: '/job-seeker',
+  APPOINTMENT: '/appointment',
   LOGIN: '/login'
 };
 
@@ -30,6 +37,10 @@ export const regularExpressions = {
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
   PASSWORD_REGEX: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/,
   DECIMAL_REGEX: '^[1-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$'
+};
+
+export const successResponses = {
+  LOGGED_OUT_SUCCESSFULLY: 'Logged out successfully'
 };
 
 export const help = {

@@ -3,6 +3,8 @@ import { Navigate, RouteObject } from 'react-router';
 import AdminSignIn from 'src/pages/Admin/auth/AdminSignIn';
 import ConsultantSignIn from 'src/pages/Consultant/auth/ConsultantSignIn';
 import ConsultantSignUp from 'src/pages/Consultant/auth/ConsultantSignup';
+import JobSeekerSignIn from 'src/pages/JobSeeker/auth/JobSeekerSignIn';
+import JobSeekerSignUp from 'src/pages/JobSeeker/auth/JobSeekerSignup';
 import StatusComingSoon from 'src/pages/Status/ComingSoon';
 import StatusMaintenance from 'src/pages/Status/Maintenance';
 import Status404 from 'src/pages/Status/Status404';
@@ -45,6 +47,22 @@ const authenticationRoutes: RouteObject[] = [
     )
   },
   {
+    path: '/job-seeker-signin',
+    element: (
+      <Suspense fallback={<>...</>}>
+        <JobSeekerSignIn />
+      </Suspense>
+    )
+  },
+  {
+    path: '/job-seeker-signup',
+    element: (
+      <Suspense fallback={<>...</>}>
+        <JobSeekerSignUp />
+      </Suspense>
+    )
+  },
+  {
     path: 'status',
     children: [
       {
@@ -68,15 +86,15 @@ const authenticationRoutes: RouteObject[] = [
         element: <StatusComingSoon />
       }
     ]
-  },
-  {
-    path: '*',
-    element: isLoggedIn().status ? (
-      <Status404 />
-    ) : (
-      <Navigate to="/consultant-signin" replace />
-    )
   }
+  // {
+  //   path: '*',
+  //   element: isLoggedIn().status ? (
+  //     <Status404 />
+  //   ) : (
+  //     <Navigate to="/consultant-signin" replace />
+  //   )
+  // }
 ];
 
 export default authenticationRoutes;

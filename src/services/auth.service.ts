@@ -21,6 +21,17 @@ const consultantSignUp = (data: Object) => {
   });
 };
 
+const jobSeekerSignIn = (credentials: Object) => {
+  return axios.post(AUTH_API_URL + apiUrls.JOB_SEEKER_SIGN_IN, credentials, {
+    withCredentials: true
+  });
+};
+
+const jobSeekerSignUp = (data: Object) => {
+  return axios.post(AUTH_API_URL + apiUrls.JOB_SEEKER_SIGN_UP, data, {
+    withCredentials: true
+  });
+};
 // const forgotPassword = (data) => {
 //   return axios.post(AUTH_API_URL + '/forgot-password', data);
 // };
@@ -53,4 +64,11 @@ const logout = () => {
   );
 };
 
-export { SignIn, consultantSignIn, consultantSignUp, logout };
+export {
+  SignIn,
+  consultantSignIn,
+  consultantSignUp,
+  jobSeekerSignIn,
+  jobSeekerSignUp,
+  logout
+};

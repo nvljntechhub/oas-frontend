@@ -37,6 +37,18 @@ const listJobSeeker = async () => {
   });
 };
 
+const getJobSeekerId = async (id: string) => {
+  return new Promise((resolve, reject) => {
+    api(Method.GET, null, apiUrls.JOB_SEEKER, '', '', id)
+      .then((response: any) => {
+        resolve(response.data);
+      })
+      .catch((error: any) => {
+        reject(error);
+      });
+  });
+};
+
 const deleteJobSeeker = async (id: number) => {
   return new Promise((resolve, reject) => {
     api(Method.DELETE, null, apiUrls.JOB_SEEKER, '', '', id)
@@ -49,4 +61,10 @@ const deleteJobSeeker = async (id: number) => {
   });
 };
 
-export { createJobSeeker, updateJobSeeker, listJobSeeker, deleteJobSeeker };
+export {
+  createJobSeeker,
+  updateJobSeeker,
+  listJobSeeker,
+  getJobSeekerId,
+  deleteJobSeeker
+};

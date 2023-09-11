@@ -25,6 +25,30 @@ const updateAppointment = async (data: Object, id: number) => {
   });
 };
 
+const acceptAppointment = async (id: number) => {
+  return new Promise((resolve, reject) => {
+    api(Method.PUT, null, apiUrls.APPOINTMENT + '/accept', '', '', id)
+      .then((response: any) => {
+        resolve(response.data);
+      })
+      .catch((error: any) => {
+        reject(error);
+      });
+  });
+};
+
+const declineAppointment = async (id: number) => {
+  return new Promise((resolve, reject) => {
+    api(Method.PUT, null, apiUrls.APPOINTMENT + '/decline', '', '', id)
+      .then((response: any) => {
+        resolve(response.data);
+      })
+      .catch((error: any) => {
+        reject(error);
+      });
+  });
+};
+
 const listAppointment = async () => {
   return new Promise((resolve, reject) => {
     api(Method.GET, null, apiUrls.APPOINTMENT)
@@ -52,6 +76,8 @@ const deleteAppointment = async (id: number) => {
 export {
   createAppointment,
   updateAppointment,
+  acceptAppointment,
+  declineAppointment,
   listAppointment,
   deleteAppointment
 };
